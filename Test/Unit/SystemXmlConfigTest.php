@@ -1,12 +1,12 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminScimAzure\Test\Unit;
+namespace DmLab\AdminScimAzure\Test\Unit;
 
-use MageDevGroup\AdminScimAzure\Block\Adminhtml\System\Config\SetupInfo;
+use DmLab\AdminScimAzure\Block\Adminhtml\System\Config\SetupInfo;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -32,7 +32,7 @@ class SystemXmlConfigTest extends TestCase
     public function testSetupFieldExtendsTheAdminScimSection(): void
     {
         $fields = $this->xpath->query(
-            '//section[@id="magedevgroup_admin_scim"]/group[@id="azure"]/field[@id="setup_info"]'
+            '//section[@id="dmlab_admin_scim"]/group[@id="azure"]/field[@id="setup_info"]'
         );
 
         self::assertNotFalse($fields);
@@ -42,7 +42,7 @@ class SystemXmlConfigTest extends TestCase
     public function testSetupFieldUsesTheFrontendModel(): void
     {
         $models = $this->xpath->query(
-            '//section[@id="magedevgroup_admin_scim"]/group[@id="azure"]'
+            '//section[@id="dmlab_admin_scim"]/group[@id="azure"]'
             . '/field[@id="setup_info"]/frontend_model'
         );
 

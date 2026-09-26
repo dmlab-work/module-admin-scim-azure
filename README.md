@@ -1,4 +1,4 @@
-# MageDevGroup_AdminScimAzure
+# DmLab_AdminScimAzure
 
 > Microsoft Entra ID SCIM provisioning for Magento 2 admin users.
 
@@ -9,17 +9,17 @@ A thin Microsoft Entra ID (formerly Azure AD) provider plugin for the [`admin-sc
 ## Install
 
 ```bash
-composer require magedevgroup/module-admin-scim-azure
-bin/magento module:enable MageDevGroup_AdminScimAzure
+composer require dmlab/module-admin-scim-azure
+bin/magento module:enable DmLab_AdminScimAzure
 bin/magento setup:upgrade
 ```
 
-The single `require` pulls `magedevgroup/module-admin-scim` — the whole provisioning chain installs at once.
+The single `require` pulls `dmlab/module-admin-scim` — the whole provisioning chain installs at once.
 
 ## Set up the Entra SCIM app
 
-1. In Magento, open **Stores → Configuration → MageDevGroup → Admin SCIM**, enable Admin SCIM, and set a **Bearer Token**.
-2. Read the Tenant URL from **Stores → Configuration → MageDevGroup → Admin SCIM → Microsoft Entra ID Setup**. It is this store's SCIM base URL, e.g. `https://your-host/admin-scim/v2`.
+1. In Magento, open **Stores → Configuration → DMLab → Admin SCIM**, enable Admin SCIM, and set a **Bearer Token**.
+2. Read the Tenant URL from **Stores → Configuration → DMLab → Admin SCIM → Microsoft Entra ID Setup**. It is this store's SCIM base URL, e.g. `https://your-host/admin-scim/v2`.
 3. In Entra, create an enterprise application, then under **Provisioning → Admin Credentials** enter:
 
    | Setting | Value |
@@ -53,8 +53,8 @@ Entra pushes SCIM 2.0 requests to the `admin-scim` endpoint. This plugin registe
 
 - Magento **2.4.x**
 - PHP **8.3 – 8.5**
-- `magedevgroup/module-admin-scim` (installed automatically)
+- `dmlab/module-admin-scim` (installed automatically)
 
 ## License
 
-[OSL-3.0](LICENSE) © MageDevGroup. Commercial licensing and support: <https://magedevgroup.com>.
+[OSL-3.0](LICENSE) © DMLab. Commercial licensing and support: <https://dmlab.work>.

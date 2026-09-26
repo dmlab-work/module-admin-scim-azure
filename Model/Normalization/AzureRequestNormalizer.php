@@ -1,12 +1,12 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminScimAzure\Model\Normalization;
+namespace DmLab\AdminScimAzure\Model\Normalization;
 
-use MageDevGroup\AdminScim\Api\RequestNormalizerInterface;
+use DmLab\AdminScim\Api\RequestNormalizerInterface;
 
 /**
  * Microsoft Entra ID provider-quirk normalizer for the `admin-scim` server.

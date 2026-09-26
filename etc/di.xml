@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <!-- Di-merge the Entra normalizer into admin-scim's provider-quirk seam. -->
-    <type name="MageDevGroup\AdminScim\Model\Normalization\RequestNormalizerChain">
+    <type name="DmLab\AdminScim\Model\Normalization\RequestNormalizerChain">
         <arguments>
             <argument name="normalizers" xsi:type="array">
                 <item name="azure" xsi:type="object">
-                    MageDevGroup\AdminScimAzure\Model\Normalization\AzureRequestNormalizer
+                    DmLab\AdminScimAzure\Model\Normalization\AzureRequestNormalizer
                 </item>
             </argument>
         </arguments>

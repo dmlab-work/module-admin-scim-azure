@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminScimAzure\Test\Unit\Model\Normalization;
+namespace DmLab\AdminScimAzure\Test\Unit\Model\Normalization;
 
-use MageDevGroup\AdminScim\Api\RequestNormalizerInterface;
-use MageDevGroup\AdminScimAzure\Model\Normalization\AzureRequestNormalizer;
+use DmLab\AdminScim\Api\RequestNormalizerInterface;
+use DmLab\AdminScimAzure\Model\Normalization\AzureRequestNormalizer;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

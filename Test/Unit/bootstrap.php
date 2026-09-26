@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  *
  * Standalone unit-test bootstrap: loads Magento's Composer autoloader (for the
  * framework classes), registers PSR-4 maps for this module and its `admin-scim`
@@ -34,10 +34,10 @@ if (!$autoloaderLoaded) {
 }
 
 $psr4 = [
-    'MageDevGroup\\AdminScimAzure\\' => $moduleRoot,
-    'MageDevGroup\\AdminScim\\' => $moduleRoot . '/../module-admin-scim',
-    'MageDevGroup\\AdminScimOkta\\' => $moduleRoot . '/../module-admin-scim-okta',
-    'MageDevGroup\\SsoCore\\' => $moduleRoot . '/../module-sso-core',
+    'DmLab\\AdminScimAzure\\' => $moduleRoot,
+    'DmLab\\AdminScim\\' => $moduleRoot . '/../module-admin-scim',
+    'DmLab\\AdminScimOkta\\' => $moduleRoot . '/../module-admin-scim-okta',
+    'DmLab\\SsoCore\\' => $moduleRoot . '/../module-sso-core',
 ];
 
 spl_autoload_register(static function (string $class) use ($psr4): void {

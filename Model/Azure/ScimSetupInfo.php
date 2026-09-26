@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminScimAzure\Model\Azure;
+namespace DmLab\AdminScimAzure\Model\Azure;
 
 use Magento\Framework\Escaper;
-use MageDevGroup\AdminScim\Model\Discovery\EndpointUrlBuilder;
+use DmLab\AdminScim\Model\Discovery\EndpointUrlBuilder;
 
 /**
  * Renders the admin setup surface for wiring an Entra ID enterprise-app
@@ -53,7 +53,7 @@ class ScimSetupInfo
         $endpoint = $this->escaper->escapeHtml($this->getEndpointUrl());
 
         return <<<HTML
-<div class="magedevgroup-admin-scim-azure-setup">
+<div class="dmlab-admin-scim-azure-setup">
     <p>In your Entra ID enterprise application (Provisioning &rarr; Admin Credentials),
         use these settings:</p>
     <ul>
@@ -68,7 +68,7 @@ class ScimSetupInfo
         accepts (a <code>204 No Content</code> is also acceptable to Entra, so no
         response-mode toggle is required).</p>
     <p>Use the token configured under
-        <em>Stores &rarr; Configuration &rarr; MageDevGroup &rarr; Admin SCIM &rarr; Bearer Token</em>,
+        <em>Stores &rarr; Configuration &rarr; DmLab &rarr; Admin SCIM &rarr; Bearer Token</em>,
         and enable Admin SCIM there first.</p>
 </div>
 HTML;

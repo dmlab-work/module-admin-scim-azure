@@ -1,14 +1,14 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminScimAzure\Test\Unit\Model\Azure;
+namespace DmLab\AdminScimAzure\Test\Unit\Model\Azure;
 
 use Magento\Framework\Escaper;
-use MageDevGroup\AdminScim\Model\Discovery\EndpointUrlBuilder;
-use MageDevGroup\AdminScimAzure\Model\Azure\ScimSetupInfo;
+use DmLab\AdminScim\Model\Discovery\EndpointUrlBuilder;
+use DmLab\AdminScimAzure\Model\Azure\ScimSetupInfo;
 use PHPUnit\Framework\TestCase;
 
 /**

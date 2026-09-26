@@ -1,14 +1,14 @@
 <?php
 /**
- * Copyright © MageDevGroup. All rights reserved.
+ * Copyright © DMLab. All rights reserved.
  */
 declare(strict_types=1);
 
-namespace MageDevGroup\AdminScimAzure\Test\Unit\Block\Adminhtml\System\Config;
+namespace DmLab\AdminScimAzure\Test\Unit\Block\Adminhtml\System\Config;
 
 use Magento\Framework\Data\Form\Element\AbstractElement;
-use MageDevGroup\AdminScimAzure\Block\Adminhtml\System\Config\SetupInfo;
-use MageDevGroup\AdminScimAzure\Model\Azure\ScimSetupInfo;
+use DmLab\AdminScimAzure\Block\Adminhtml\System\Config\SetupInfo;
+use DmLab\AdminScimAzure\Model\Azure\ScimSetupInfo;
 use PHPUnit\Framework\TestCase;
 
 /**
