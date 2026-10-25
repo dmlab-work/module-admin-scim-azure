@@ -3,6 +3,11 @@
 All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.1]
+
+- Fixed: Entra member remove with an empty `value` list is a `200` no-op instead of `400`.
+- Tested on Magento 2.4.9 and PHP 8.5.
+
 ## [0.2.0]
 
 - Normalizer reduced to the core-URN strip and the group-member remove rewrite; extension shapes pass through unchanged. An empty member-remove `value` list is dropped.

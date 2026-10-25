@@ -3,7 +3,7 @@
     "description": "Microsoft Entra ID provider plugin for the admin-scim SCIM 2.0 server — canonicalizes Entra's core-URN-qualified attributes and group-member removes, and documents the Entra enterprise-app provisioning setup. Installing it pulls dmlab/module-admin-scim.",
     "type": "magento2-module",
     "license": "OSL-3.0",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "require": {
         "php": "~8.3.0||~8.4.0||~8.5.0",
         "magento/framework": ">=103.0",
