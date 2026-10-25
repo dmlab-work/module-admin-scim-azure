@@ -130,6 +130,18 @@ class EntraPayloadContractTest extends TestCase
         self::assertSame(['42', '77'], $targeted);
     }
 
+    public function testEmptyGroupMemberRemoveIsAcceptedNoOp(): void
+    {
+        $operations = (new AzureRequestNormalizer())->normalize(
+            RequestNormalizerInterface::RESOURCE_GROUP,
+            'PATCH',
+            ['Operations' => [['op' => 'Remove', 'path' => 'members', 'value' => []]]]
+        )['Operations'];
+
+        self::assertSame([['op' => 'add', 'path' => 'members', 'value' => []]], $operations);
+        CoreAcceptedPatchGrammar::assertGroupOpAccepted($operations[0]);
+    }
+
     // --- Grammar helper negatives -----------------------------------------
 
     /**

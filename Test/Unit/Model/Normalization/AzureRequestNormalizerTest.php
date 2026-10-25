@@ -441,7 +441,7 @@ class AzureRequestNormalizerTest extends TestCase
         );
     }
 
-    public function testGroupMemberRemoveWithEmptyValueListIsDropped(): void
+    public function testGroupMemberRemoveWithEmptyValueListBecomesNoOpAdd(): void
     {
         // The core reads an empty list as "clear all"; Entra means "remove nobody".
         $result = $this->normalizer->normalize(
@@ -453,7 +453,25 @@ class AzureRequestNormalizerTest extends TestCase
             ]]
         );
 
-        self::assertSame([['op' => 'Replace', 'path' => 'displayName', 'value' => 'Ops']], $result['Operations']);
+        self::assertSame(
+            [
+                ['op' => 'add', 'path' => 'members', 'value' => []],
+                ['op' => 'Replace', 'path' => 'displayName', 'value' => 'Ops'],
+            ],
+            $result['Operations']
+        );
+    }
+
+    public function testLoneEmptyGroupMemberRemoveKeepsOperationsNonEmpty(): void
+    {
+        // An empty Operations list is a 400 in the core; the no-op add keeps it a 200.
+        $result = $this->normalizer->normalize(
+            RequestNormalizerInterface::RESOURCE_GROUP,
+            'PATCH',
+            ['Operations' => [['op' => 'Remove', 'path' => 'members', 'value' => []]]]
+        );
+
+        self::assertSame([['op' => 'add', 'path' => 'members', 'value' => []]], $result['Operations']);
     }
 
     public function testPathlessGroupMemberRemoveThatClearsAllIsNotExpanded(): void

@@ -18,8 +18,8 @@ use DmLab\AdminScim\Api\RequestNormalizerInterface;
  *     (or `.active`) in a PATCH `path`, a path-less `value` key or a POST/PUT top-level key
  *     becomes the bare `active` (also inside the object of a `path` equal to the core URN).
  *  2. Group-member remove via `value` — `{op: remove, path: "members", value: [{value: "42"}]}`
- *     becomes one `members[value eq "42"]` filtered remove per member; an empty list is dropped,
- *     since the core would read it as "clear all members".
+ *     becomes one `members[value eq "42"]` filtered remove per member; an empty list becomes an
+ *     empty `add`, a no-op the core accepts (it reads an empty remove as "clear all members").
  *
  * Extension paths and keys pass through untouched: the core accepts and ignores them, and
  * nesting them produced a shape the core rejected.
@@ -100,7 +100,8 @@ class AzureRequestNormalizer implements RequestNormalizerInterface
      * Split an Entra group-member `remove` carrying members in `value` into one
      * `members[value eq "<id>"]` filtered remove per member.
      *
-     * Returns an empty list for an empty `value` list (removes nobody). Returns null (leave
+     * Returns an empty `members` add for an empty `value` list: it removes nobody, and dropping the
+     * op could leave `Operations` empty, which the core rejects. Returns null (leave
      * the op untouched) when it is not a member-remove-by-value or when a member id cannot be
      * safely embedded in a filter — the core still removes only the listed members then.
      *
@@ -119,6 +120,10 @@ class AzureRequestNormalizer implements RequestNormalizerInterface
         $value = $operation['value'] ?? null;
         if (!is_array($value) || !array_is_list($value)) {
             return null;
+        }
+
+        if ($value === []) {
+            return [['op' => 'add', 'path' => 'members', 'value' => []]];
         }
 
         $ops = [];
