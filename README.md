@@ -61,7 +61,7 @@ Entra pushes SCIM 2.0 requests to the `admin-scim` endpoint. This plugin registe
 
 ## Requirements
 
-- Magento **2.4.x**
+- Magento **2.4.x** (tested on 2.4.9)
 - PHP **8.3 – 8.5**
 - `dmlab/module-admin-scim` `^0.2.0` (installed automatically)
 
