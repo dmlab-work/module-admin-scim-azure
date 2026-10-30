@@ -3,6 +3,13 @@
 All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.2]
+
+- Requires Magento 2.4.7+ (`magento/framework ^103.0.7`, matching module floors) and PHP 8.2–8.5.
+- CI: unit matrix PHP 8.2–8.5; CI installs no longer counted as Packagist downloads.
+- composer.json: `keywords`, `homepage`, `support` metadata.
+- README restructured: offboarding intro, screenshot, install, Entra setup, `## Architecture`.
+
 ## [0.2.1]
 
 - Fixed: Entra member remove with an empty `value` list is a `200` no-op instead of `400`.
