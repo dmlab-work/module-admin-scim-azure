@@ -23,9 +23,11 @@ class PackagingTest extends TestCase
     {
         $require = $this->composer()['require'];
 
+        self::assertSame('~8.2.0||~8.3.0||~8.4.0||~8.5.0', $require['php'] ?? null);
+        self::assertSame('^103.0.7', $require['magento/framework'] ?? null);
         self::assertSame('^0.2.0', $require['dmlab/module-admin-scim'] ?? null);
-        self::assertSame('>=102.0', $require['magento/module-backend'] ?? null);
-        self::assertSame('>=101.2', $require['magento/module-config'] ?? null);
+        self::assertSame('^102.0.7', $require['magento/module-backend'] ?? null);
+        self::assertSame('^101.2.7', $require['magento/module-config'] ?? null);
     }
 
     public function testImportedMagentoModulesAreRequiredInComposer(): void
